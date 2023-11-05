@@ -1,0 +1,29 @@
+# Ignore Node.js build and runtime files
+src/hello-lambda/node_modules/
+src/hello-lambda/dist/
+
+# Ignore environment-specific files
+.env
+.env.local
+.env.*.local
+
+# Ignore npm's cache files
+.npm
+.npmrc
+
+# Ignore the AWS Lambda deployment package zip file
+lambda.zip
+
+.DS_Store
+
+
+# terraform stuff
+terraform/.terraform.lock.hcl
+terraform/.terraform/
+terraform/terraform.rc
+terraform/.terraform.rc
+terraform/crash.log
+terraform/terraform.tfstate
+terraform/.terraform.tfstate.lock.info
+terraform/terraform.tfstate.backup
+terraform/terraform.tfvars
