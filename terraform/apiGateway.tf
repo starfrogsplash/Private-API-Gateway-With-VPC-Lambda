@@ -1,6 +1,6 @@
 # Create a new REST API
 resource "aws_api_gateway_rest_api" "example" {
-  name = "example-api"
+  name        = "example-api"
   description = "My REST API for AWS API Gateway"
 }
 
@@ -31,7 +31,7 @@ resource "aws_api_gateway_integration" "example" {
 
 # Create a new deployment for the API
 resource "aws_api_gateway_deployment" "example" {
-  depends_on = [ aws_api_gateway_integration.example ]
+  depends_on  = [aws_api_gateway_integration.example]
   rest_api_id = aws_api_gateway_rest_api.example.id
   stage_name  = "dev"
 }

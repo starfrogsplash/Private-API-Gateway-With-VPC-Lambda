@@ -2,7 +2,7 @@
 resource "aws_iam_role" "lambda_exec_role" {
   name = "hello-lambda-exec-role"
 
- permissions_boundary = var.custom_policy_arn
+  permissions_boundary = var.custom_policy_arn
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
