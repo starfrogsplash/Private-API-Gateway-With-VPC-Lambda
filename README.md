@@ -45,7 +45,7 @@ terraform apply
 7. After successfully applying Terraform, you can invoke the api gateway `hello` endpoint from any browser, terminal etc.
 
 ```
-api_gateway_url/hello
+{the api gateway url}/hello
 ```
 
 
