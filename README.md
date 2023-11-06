@@ -29,6 +29,8 @@ npm run build
 terraform init
 ```
 
+3. Create default values for your terraform `variables` or create a `terraform.tfvars` to store your secrets
+
 4. Review the Terraform configuration in the terraform directory, including main.tf, variables.tf, and outputs.tf, to ensure it matches your desired AWS setup.
 
 5. Plan the Terraform changes:
@@ -45,7 +47,7 @@ terraform apply
 7. After successfully applying Terraform, you can invoke the api gateway `hello` endpoint from any browser, terminal etc.
 
 ```
-{the api gateway url}/hello
+{the api gateway url}/dev/hello
 ```
 
 

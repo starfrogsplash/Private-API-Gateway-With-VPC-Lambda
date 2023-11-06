@@ -2,6 +2,10 @@
 resource "aws_api_gateway_rest_api" "example" {
   name        = "example-api"
   description = "My REST API for AWS API Gateway"
+
+    endpoint_configuration {
+    types = ["REGIONAL"]
+  }
 }
 
 # Create a new resource for the API
@@ -29,11 +33,17 @@ resource "aws_api_gateway_integration" "example" {
   uri                     = aws_lambda_function.hello_lambda.invoke_arn
 }
 
+# Create a new stage for the API
+resource "aws_api_gateway_stage" "example" {
+  stage_name    = "dev"
+  rest_api_id   = aws_api_gateway_rest_api.example.id
+  deployment_id = aws_api_gateway_deployment.example.id
+}
+
 # Create a new deployment for the API
 resource "aws_api_gateway_deployment" "example" {
   depends_on  = [aws_api_gateway_integration.example]
   rest_api_id = aws_api_gateway_rest_api.example.id
-  stage_name  = "dev"
 }
 
 resource "aws_lambda_permission" "api_gateway" {

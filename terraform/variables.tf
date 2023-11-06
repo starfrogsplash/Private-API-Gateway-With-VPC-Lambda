@@ -8,3 +8,7 @@ variable "aws_region" {
 variable "custom_policy_arn" {
   description = "The ARN of the custom IAM policy."
 }
+
+variable "ip_address" {
+  description = "The IP address to allow access to the API."
+}
