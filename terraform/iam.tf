@@ -24,6 +24,28 @@ resource "aws_iam_role_policy_attachment" "lambda_exec_role_attachment" {
   role       = aws_iam_role.lambda_exec_role.name
 }
 
+resource "aws_iam_role_policy" "lambda_vpc_access" {
+  name = "lambda_vpc_access"
+  role = aws_iam_role.lambda_exec_role.name
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = [
+          "ec2:CreateNetworkInterface",
+          "ec2:DescribeNetworkInterfaces",
+          "ec2:DeleteNetworkInterface"
+        ]
+        Effect   = "Allow"
+        Resource = "*"
+      }
+    ]
+  })
+}
+
+
+
 data "aws_iam_policy_document" "api-restrict" {
   statement {
     effect = "Allow"
